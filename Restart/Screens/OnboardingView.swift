@@ -13,6 +13,7 @@ struct OnboardingView: View {
     @AppStorage("onboarding") var isOnboardingViewActive: Bool = true
     
     // MARK: - BODY
+
     var body: some View {
         VStack(spacing: 20) {
             Text("Onboarding")
