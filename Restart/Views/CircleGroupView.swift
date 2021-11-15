@@ -9,12 +9,23 @@ import SwiftUI
 
 struct CircleGroupView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Circle()
+                .stroke(.white.opacity(0.2), lineWidth: 40)
+                .frame(width: 260, height: 260, alignment: .center)
+            Circle()
+                .stroke(.white.opacity(0.2), lineWidth: 80)
+                .frame(width: 260, height: 260, alignment: .center)
+        } //: ZSTACK
     }
 }
 
 struct CircleGroupView_Previews: PreviewProvider {
     static var previews: some View {
-        CircleGroupView()
+        ZStack {
+            Color("ColorBlue")
+                .ignoresSafeArea(.all, edges: .all)
+            CircleGroupView()
+        }
     }
 }
