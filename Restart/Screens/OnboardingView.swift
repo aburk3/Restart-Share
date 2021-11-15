@@ -83,7 +83,7 @@ struct OnboardingView: View {
                     HStack {
                         Capsule()
                             .fill(Color("ColorRed"))
-                            .frame(width: 80)
+                            .frame(width: buttonOffset + 80)
                         
                         Spacer()
                     }
@@ -109,6 +109,14 @@ struct OnboardingView: View {
                                     if gesture.translation.width > 0 && buttonOffset <=
                                         buttonWidth - 80 {
                                         buttonOffset = gesture.translation.width
+                                    }
+                                }
+                                .onEnded { _ in
+                                    if buttonOffset > buttonWidth / 2 {
+                                        buttonOffset = buttonWidth - 80
+                                        isOnboardingViewActive = false
+                                    } else {
+                                        buttonOffset = 0
                                     }
                                 }
                         ) //: GESTURE
